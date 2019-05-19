@@ -96,7 +96,9 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/05/05/E0p4Yj.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/05/05/E0pqmT.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/05/06/EBisFU.png">
-<meta property="og:updated_time" content="2019-05-05T16:15:08.377Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/19/EjJbLV.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/19/EjYPL6.png">
+<meta property="og:updated_time" content="2019-05-19T09:51:10.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从0到1搭建Hexo for Mac 主题配置(二)">
 <meta name="twitter:description" content="由从0到1搭建Hexo for Mac 基础(一)的搭建完成，接下来选择一个好的主题是很有必要的Hexo官网：Hexo Website,本人也是在网上看了很多，找了适合的主题：next，本文主要是以next为例进行搭建Hexo的主题配置 1. 下载主题 切换到blog目录下，运行命令行进行下载主题git clone https://github.com/iissnan/hexo-theme-nex">
@@ -211,16 +213,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -303,6 +295,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/blog/" itemprop="url" rel="index">
+                    <span itemprop="name">blog</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -365,8 +379,28 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">  background: url(/images/background.jpg);</span><br><span class="line">  background-attachment: fixed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-6-使用不蒜子站点统计"><a href="#2-6-使用不蒜子站点统计" class="headerlink" title="2.6 使用不蒜子站点统计"></a>2.6 使用不蒜子站点统计</h3><ul>
+<li>使用的<a href="https://busuanzi.ibruce.info/" target="_blank" rel="noopener">不蒜子</a>统计，何为不蒜子简言之就是<code>两行代码 搞定计数</code></li>
+<li>修改方法，在<code>next</code>文件夹下的<code>blog/themes/next/_config.yml</code>修改<code>script</code>为</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  # count values only if the other configs are false</span><br><span class="line">  enable: true</span><br><span class="line">  # custom uv span for the whole site</span><br><span class="line">  site_uv: true</span><br><span class="line">  site_uv_header: 访客数</span><br><span class="line">  site_uv_footer: 人</span><br><span class="line">  # custom pv span for the whole site</span><br><span class="line">  site_pv: true</span><br><span class="line">  site_pv_header: 总访问量</span><br><span class="line">  site_pv_footer: 次</span><br><span class="line">  # custom pv span for one page only</span><br><span class="line">  page_pv: true</span><br><span class="line">  page_pv_header: &lt;i class=&quot;fa fa-file-o&quot;&gt;&lt;/i&gt;  阅读数</span><br><span class="line">  page_pv_footer:</span><br></pre></td></tr></table></figure>
+<h3 id="2-7-文章摘要设置"><a href="#2-7-文章摘要设置" class="headerlink" title="2.7 文章摘要设置"></a>2.7 文章摘要设置</h3><ul>
+<li>在左侧首页标签栏下，设置文章摘要方便显示文章预览，看起来更美观</li>
+<li>在主题配置文件中的<code>blog/themes/next/_config.yml</code>修改<code>enable: flase</code>改为<code>enable: true</code>如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Automatically Excerpt. Not recommend.</span><br><span class="line"># Please use &lt;!-- more --&gt; in the post to control excerpt accurately.</span><br><span class="line">auto_excerpt:</span><br><span class="line">  enable: true</span><br><span class="line">  length: 150</span><br></pre></td></tr></table></figure>
+<h3 id="2-8-首页添加封面图"><a href="#2-8-首页添加封面图" class="headerlink" title="2.8 首页添加封面图"></a>2.8 首页添加封面图</h3><ul>
+<li>刚刚文章首页已经设置摘要，再添加封面图效果更佳：在首页每篇文章中都会显示一个图片(可以是静态或动态)，打开文章详情页就不显示该图片</li>
+<li>在每篇文章中开头添加<code>summary_img</code>,如下显示<br><a href="https://imgchr.com/i/EjJbLV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/05/19/EjJbLV.png" alt="EjJbLV.png"></a></li>
+<li><code>hexo</code>默认不支持<code>summary_img</code>字段，需要在主题配置文件中<code>/themes/next/layout/_macro/post.swig</code>添加如下代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--自定义封面摘要图片  start--&gt;</span><br><span class="line">&#123;% if post.summary_img  %&#125;</span><br><span class="line">  &lt;div class=&quot;out-img-topic&quot;&gt;</span><br><span class="line">    &lt;img src=&#123;&#123; post.summary_img &#125;&#125; class=&quot;img-topic&quot;&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line">&lt;!--自定义封面摘要图片  end--&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加的代码放在一下位置即可：<br><img src="https://s2.ax1x.com/2019/05/19/EjYPL6.png" alt="EjYPL6.png"></li>
+</ul>
 <h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ul>
 <li><a href="https://www.jianshu.com/p/77db3862595c" target="_blank" rel="noopener">Mac 系统下搭建hexo个人博客</a></li>
+<li><a href="https://www.jianshu.com/p/c311d31265e0" target="_blank" rel="noopener">hexo页脚添加访客人数和总访问量</a></li>
 </ul>
 
       
@@ -407,6 +441,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/18/3/" rel="prev" title="世界上最伟大的销售员（把任何东西卖给任何人）">
+                世界上最伟大的销售员（把任何东西卖给任何人） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -485,12 +523,21 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
             
 
             
@@ -498,7 +545,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -559,7 +606,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#由从0到1搭建Hexo-for-Mac-基础-一-的搭建完成，接下来选择一个好的主题是很有必要的"><span class="nav-number">1.</span> <span class="nav-text">由从0到1搭建Hexo for Mac 基础(一)的搭建完成，接下来选择一个好的主题是很有必要的</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#1-下载主题"><span class="nav-number"></span> <span class="nav-text">1. 下载主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-配置主题细节"><span class="nav-number"></span> <span class="nav-text">2.配置主题细节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-修改配置文件"><span class="nav-number"></span> <span class="nav-text">2.1 修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-修改语言、标题及个性化图像"><span class="nav-number"></span> <span class="nav-text">2.2 修改语言、标题及个性化图像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-添加标签和分类"><span class="nav-number"></span> <span class="nav-text">2.3 添加标签和分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-侧边栏的社交链接"><span class="nav-number"></span> <span class="nav-text">2.4 侧边栏的社交链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-添加背景图"><span class="nav-number"></span> <span class="nav-text">2.5 添加背景图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文章"><span class="nav-number"></span> <span class="nav-text">参考文章</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#由从0到1搭建Hexo-for-Mac-基础-一-的搭建完成，接下来选择一个好的主题是很有必要的"><span class="nav-number">1.</span> <span class="nav-text">由从0到1搭建Hexo for Mac 基础(一)的搭建完成，接下来选择一个好的主题是很有必要的</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#1-下载主题"><span class="nav-number"></span> <span class="nav-text">1. 下载主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-配置主题细节"><span class="nav-number"></span> <span class="nav-text">2.配置主题细节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-修改配置文件"><span class="nav-number"></span> <span class="nav-text">2.1 修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-修改语言、标题及个性化图像"><span class="nav-number"></span> <span class="nav-text">2.2 修改语言、标题及个性化图像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-添加标签和分类"><span class="nav-number"></span> <span class="nav-text">2.3 添加标签和分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-侧边栏的社交链接"><span class="nav-number"></span> <span class="nav-text">2.4 侧边栏的社交链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-添加背景图"><span class="nav-number"></span> <span class="nav-text">2.5 添加背景图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-使用不蒜子站点统计"><span class="nav-number"></span> <span class="nav-text">2.6 使用不蒜子站点统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-文章摘要设置"><span class="nav-number"></span> <span class="nav-text">2.7 文章摘要设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8-首页添加封面图"><span class="nav-number"></span> <span class="nav-text">2.8 首页添加封面图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文章"><span class="nav-number"></span> <span class="nav-text">参考文章</span></a></li></ol></li></div>
             
 
           </div>
