@@ -105,8 +105,34 @@ auto_excerpt:
 <!--自定义封面摘要图片  end-->
 
 ```
-* 添加的代码放在一下位置即可：
+* 添加的代码放在以下位置即可：
 ![EjYPL6.png](https://s2.ax1x.com/2019/05/19/EjYPL6.png)
+
+### 2.9 分离博客源码与发布文件
+* 细心的同学肯定会发现远程仓库和本地的代码不一致，自己编写的`.md`文件在远程仓库也没有显示，取而代之的是生成了`.html`静态文件
+[![VGATD1.png](https://s2.ax1x.com/2019/06/02/VGATD1.png)]
+* 这样导致的问题就是万一换了一个电脑，本地的`.md`文件也找不到，远程仓库也没有这就很尴尬，莫慌有个方法可以解决这个问题。需要将原始文章和发布生成的静态文件分离，利用`git`的分支管理可以很方便的做到
+* 在进行`hexo d`后可以看到远程仓库是以`master`保存本地的文件。那具体的方法是我们先在远程的仓库中新建一个分支例如`save`用于专门存放保存原始文件的分支，在本地编写好后`push`到远程仓库中就会保存本地的文件（也就是`.md`文件不会丢失），切换到本地的`blog`根目录下，具体操作的步骤如下
+
+```
+git init    初始化本地文件
+git remote add origin https://github.com/EmmySmith/EmmySmith.github.io.git    添加远程仓库
+git checkout -b save   新建 save 分支
+git add .           将所有的代码提交到缓存区   
+git commit -m 'new branch save'   提交分支代码
+git push          推送到远程
+```
+* 以上的所有操作是不是觉得有点冗余，是的。为了方便每次提交代码的方便，可以写一个`npm`帮助我们做这些事。在根目录下的`package.json`文件中加入以下执行代码：
+```
+"scripts": {
+    "pub": "git checkout save && hexo clean &&  hexo g && hexo d && git add . && git commit -m 'update' && git push"
+  },
+```
+* 添加完成后执行`npm run pub`命令就能自动完成`分离博客源码与发布文件`的事。主要的步骤为`1.切换到save分支->2.生成并发布博客->3.将所有修改全部推送到远程分支中`
+
+
+
+
 
 
 
