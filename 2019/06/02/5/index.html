@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下前置条件1231. 安装[Python](https://www.python.org/)2. 安装[Pycharm](http://www.jetbrains.com/pycharm/?fromMenu)3. 配置环境变量 1. 接口自动化框架 涉及到接口自动化的框架，主要包括公共类，case类，测试数据，测试报告等">
+<meta name="description" content="工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下前置条件 安装Python 安装Pycharm 配置相关的环境变量   1. 接口自动化框架 涉及到接口自动化的框架，主要包括公共类，case类，测试数据，测试报告等4大类  2. 公共类 公共类中主要是用到的公共数据（环境，数据，headers）,不同的端分为不同的.py文件。例如后台+前台  3.case类 cas">
 <meta name="keywords" content="接口">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈Pycharm之Unittest的接口自动化测试">
 <meta property="og:url" content="http://yoursite.com/2019/06/02/5/index.html">
 <meta property="og:site_name" content="五年一磨">
-<meta property="og:description" content="工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下前置条件1231. 安装[Python](https://www.python.org/)2. 安装[Pycharm](http://www.jetbrains.com/pycharm/?fromMenu)3. 配置环境变量 1. 接口自动化框架 涉及到接口自动化的框架，主要包括公共类，case类，测试数据，测试报告等">
+<meta property="og:description" content="工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下前置条件 安装Python 安装Pycharm 配置相关的环境变量   1. 接口自动化框架 涉及到接口自动化的框架，主要包括公共类，case类，测试数据，测试报告等4大类  2. 公共类 公共类中主要是用到的公共数据（环境，数据，headers）,不同的端分为不同的.py文件。例如后台+前台  3.case类 cas">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/06/02/VGWzqK.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/06/02/VGfbef.png">
@@ -102,10 +102,10 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/06/05/VUGXjJ.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/06/05/VUJZDA.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/06/06/VaVjNd.png">
-<meta property="og:updated_time" content="2019-06-06T03:09:21.987Z">
+<meta property="og:updated_time" content="2019-06-06T03:17:03.685Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈Pycharm之Unittest的接口自动化测试">
-<meta name="twitter:description" content="工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下前置条件1231. 安装[Python](https://www.python.org/)2. 安装[Pycharm](http://www.jetbrains.com/pycharm/?fromMenu)3. 配置环境变量 1. 接口自动化框架 涉及到接口自动化的框架，主要包括公共类，case类，测试数据，测试报告等">
+<meta name="twitter:description" content="工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下前置条件 安装Python 安装Pycharm 配置相关的环境变量   1. 接口自动化框架 涉及到接口自动化的框架，主要包括公共类，case类，测试数据，测试报告等4大类  2. 公共类 公共类中主要是用到的公共数据（环境，数据，headers）,不同的端分为不同的.py文件。例如后台+前台  3.case类 cas">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/06/02/VGWzqK.png">
 
 
@@ -353,7 +353,12 @@
       
 
       
-        <h5 id="工作中一直使用Python-Unittest做接口自动化测试-今天有时间总结一下"><a href="#工作中一直使用Python-Unittest做接口自动化测试-今天有时间总结一下" class="headerlink" title="工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下"></a>工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下</h5><h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 安装[Python](https://www.python.org/)</span><br><span class="line">2. 安装[Pycharm](http://www.jetbrains.com/pycharm/?fromMenu)</span><br><span class="line">3. 配置环境变量</span><br></pre></td></tr></table></figure>
+        <h5 id="工作中一直使用Python-Unittest做接口自动化测试-今天有时间总结一下"><a href="#工作中一直使用Python-Unittest做接口自动化测试-今天有时间总结一下" class="headerlink" title="工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下"></a>工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下</h5><h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><ol>
+<li>安装<a href="https://www.python.org/" target="_blank" rel="noopener">Python</a></li>
+<li>安装<a href="http://www.jetbrains.com/pycharm/?fromMenu" target="_blank" rel="noopener">Pycharm</a></li>
+<li>配置相关的环境变量</li>
+</ol>
+<hr>
 <h3 id="1-接口自动化框架"><a href="#1-接口自动化框架" class="headerlink" title="1. 接口自动化框架"></a>1. 接口自动化框架</h3><ul>
 <li>涉及到接口自动化的框架，主要包括公共类，case类，测试数据，测试报告等4大类<br><img src="https://s2.ax1x.com/2019/06/02/VGWzqK.png" alt="VGWzqK.png"></li>
 </ul>
