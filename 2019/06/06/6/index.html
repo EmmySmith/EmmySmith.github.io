@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="接口,">
+  <meta name="keywords" content="UI,">
 
 
 
@@ -79,17 +79,15 @@
 
 
 
-<meta name="description" content="工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下前置条件 安装Python 安装Pycharm 配置相关的环境变量   1. 接口自动化框架 涉及到接口自动化的框架，主要包括公共类，case类，测试数据，测试报告等4大类  2. 公共类 公共类中主要是用到的公共数据（环境，数据，headers）,不同的端分为不同的.py文件。例如后台+前台  3.case类 cas">
-<meta name="keywords" content="接口">
+<meta name="description" content="UI自动化作为测试来说也是很必要的技术，在一个公司要不要展开自动化是需要考虑自动化投入和产出是否成正比。当然针对个人发展来说技多不压身，今天的这篇文章是借鉴他人的代码自己整理出的一些逻辑，希望在以后的日子里可以深入研究前置条件 安装Python 安装Pycharm 安装类库：Unittest；request；appium；selenium；HMLTestRunner等 安装Adb 安装Node.j">
+<meta name="keywords" content="UI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈Pycharm之Unittest的接口自动化测试">
-<meta property="og:url" content="http://yoursite.com/2019/06/02/5/index.html">
+<meta property="og:title" content="小程序UI自动化之Python">
+<meta property="og:url" content="http://yoursite.com/2019/06/06/6/index.html">
 <meta property="og:site_name" content="五年一磨">
-<meta property="og:description" content="工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下前置条件 安装Python 安装Pycharm 配置相关的环境变量   1. 接口自动化框架 涉及到接口自动化的框架，主要包括公共类，case类，测试数据，测试报告等4大类  2. 公共类 公共类中主要是用到的公共数据（环境，数据，headers）,不同的端分为不同的.py文件。例如后台+前台  3.case类 cas">
+<meta property="og:description" content="UI自动化作为测试来说也是很必要的技术，在一个公司要不要展开自动化是需要考虑自动化投入和产出是否成正比。当然针对个人发展来说技多不压身，今天的这篇文章是借鉴他人的代码自己整理出的一些逻辑，希望在以后的日子里可以深入研究前置条件 安装Python 安装Pycharm 安装类库：Unittest；request；appium；selenium；HMLTestRunner等 安装Adb 安装Node.j">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s2.ax1x.com/2019/06/02/VGWzqK.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/06/02/VGfbef.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/06/02/VGhEY4.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/06/Vaj6zj.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/06/03/VYlGtJ.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/06/03/VY1QgI.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/06/05/VUeZBF.png">
@@ -102,11 +100,11 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/06/05/VUGXjJ.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/06/05/VUJZDA.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/06/06/VaVjNd.png">
-<meta property="og:updated_time" content="2019-06-06T03:20:54.848Z">
+<meta property="og:updated_time" content="2019-06-09T14:05:52.538Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈Pycharm之Unittest的接口自动化测试">
-<meta name="twitter:description" content="工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下前置条件 安装Python 安装Pycharm 配置相关的环境变量   1. 接口自动化框架 涉及到接口自动化的框架，主要包括公共类，case类，测试数据，测试报告等4大类  2. 公共类 公共类中主要是用到的公共数据（环境，数据，headers）,不同的端分为不同的.py文件。例如后台+前台  3.case类 cas">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/06/02/VGWzqK.png">
+<meta name="twitter:title" content="小程序UI自动化之Python">
+<meta name="twitter:description" content="UI自动化作为测试来说也是很必要的技术，在一个公司要不要展开自动化是需要考虑自动化投入和产出是否成正比。当然针对个人发展来说技多不压身，今天的这篇文章是借鉴他人的代码自己整理出的一些逻辑，希望在以后的日子里可以深入研究前置条件 安装Python 安装Pycharm 安装类库：Unittest；request；appium；selenium；HMLTestRunner等 安装Adb 安装Node.j">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/06/06/Vaj6zj.png">
 
 
 
@@ -136,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/02/5/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/06/6/">
 
 
 
 
 
-  <title>浅谈Pycharm之Unittest的接口自动化测试 | 五年一磨</title>
+  <title>小程序UI自动化之Python | 五年一磨</title>
   
 
 
@@ -259,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/02/5/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/06/6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Emmy Smith">
@@ -276,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浅谈Pycharm之Unittest的接口自动化测试</h1>
+          <h1 class="post-title" itemprop="name headline">小程序UI自动化之Python</h1>
         
 
         <div class="post-meta">
@@ -288,8 +286,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-02T20:04:13+08:00">
-                2019-06-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-06T11:24:13+08:00">
+                2019-06-06
               </time>
             
 
@@ -353,17 +351,23 @@
       
 
       
-        <h5 id="工作中一直使用Python-Unittest做接口自动化测试-今天有时间总结一下"><a href="#工作中一直使用Python-Unittest做接口自动化测试-今天有时间总结一下" class="headerlink" title="工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下"></a>工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下</h5><h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><ol>
+        <h5 id="UI自动化作为测试来说也是很必要的技术，在一个公司要不要展开自动化是需要考虑自动化投入和产出是否成正比。当然针对个人发展来说技多不压身，今天的这篇文章是借鉴他人的代码自己整理出的一些逻辑，希望在以后的日子里可以深入研究"><a href="#UI自动化作为测试来说也是很必要的技术，在一个公司要不要展开自动化是需要考虑自动化投入和产出是否成正比。当然针对个人发展来说技多不压身，今天的这篇文章是借鉴他人的代码自己整理出的一些逻辑，希望在以后的日子里可以深入研究" class="headerlink" title="UI自动化作为测试来说也是很必要的技术，在一个公司要不要展开自动化是需要考虑自动化投入和产出是否成正比。当然针对个人发展来说技多不压身，今天的这篇文章是借鉴他人的代码自己整理出的一些逻辑，希望在以后的日子里可以深入研究"></a>UI自动化作为测试来说也是很必要的技术，在一个公司要不要展开自动化是需要考虑自动化投入和产出是否成正比。当然针对个人发展来说技多不压身，今天的这篇文章是借鉴他人的代码自己整理出的一些逻辑，希望在以后的日子里可以深入研究</h5><h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><ol>
 <li>安装<a href="https://www.python.org/" target="_blank" rel="noopener">Python</a></li>
 <li>安装<a href="http://www.jetbrains.com/pycharm/?fromMenu" target="_blank" rel="noopener">Pycharm</a></li>
-<li>配置相关的环境变量</li>
+<li>安装类库：Unittest；request；appium；selenium；HMLTestRunner等</li>
+<li>安装<a href="https://blog.csdn.net/vsrfind/article/details/79593098" target="_blank" rel="noopener">Adb</a></li>
+<li>安装<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a></li>
+<li>使用命令行安装[npm淘宝镜像]sudo npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a> –verbose</li>
+<li>安装<a href="https://testerhome.com/topics/680" target="_blank" rel="noopener">appium desktop</a></li>
 </ol>
 <hr>
-<h3 id="1-接口自动化框架"><a href="#1-接口自动化框架" class="headerlink" title="1. 接口自动化框架"></a>1. 接口自动化框架</h3><ul>
-<li>涉及到接口自动化的框架，主要包括公共类，case类，测试数据，测试报告等4大类<br><img src="https://s2.ax1x.com/2019/06/02/VGWzqK.png" alt="VGWzqK.png"></li>
+<h3 id="1-Adb确定连接"><a href="#1-Adb确定连接" class="headerlink" title="1. Adb确定连接"></a>1. Adb确定连接</h3><ul>
+<li>首先手机需要打开开发者选项，然后使用电脑通过数据线连接手机，在命令行中输入以下命令就可查看手机和电脑是否连接成功<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. adb   没有提示错误信息则显示adb安装成功</span><br><span class="line">2. adb devices  出现设备信息则显示电脑和手机连接成功</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h3 id="2-公共类"><a href="#2-公共类" class="headerlink" title="2. 公共类"></a>2. 公共类</h3><ul>
-<li>公共类中主要是用到的公共数据（环境，数据，headers）,不同的端分为不同的<code>.py</code>文件。例如后台+前台<br><img src="https://s2.ax1x.com/2019/06/02/VGfbef.png" alt="VGfbef.png"><br><img src="https://s2.ax1x.com/2019/06/02/VGhEY4.png" alt="VGhEY4.png"></li>
+<p><img src="https://s2.ax1x.com/2019/06/06/Vaj6zj.png" alt="Vaj6zj.png"></p>
+<h3 id="2-Appium-desktop配置"><a href="#2-Appium-desktop配置" class="headerlink" title="2. Appium desktop配置"></a>2. Appium desktop配置</h3><ul>
+<li>打开appium desktop中设置host为<code>127.0.0.1</code>，post为默认。点击连接后打开右上角的🔍按钮，在配置</li>
 </ul>
 <h3 id="3-case类"><a href="#3-case类" class="headerlink" title="3.case类"></a>3.case类</h3><ul>
 <li>case类是最主要的类，用于不同的分类，这是接口自动化的核心用的最多的类。按照不同的业务端可以分为不同的文件夹下创建不同的<code>.py</code>文件<br><img src="https://s2.ax1x.com/2019/06/03/VYlGtJ.png" alt="VYlGtJ.png"></li>
@@ -420,7 +424,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/接口/" rel="tag"># 接口</a>
+            <a href="/tags/UI/" rel="tag"># UI</a>
           
         </div>
       
@@ -433,8 +437,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/30/4/" rel="next" title="领导者的资质  ———稻盛和夫">
-                <i class="fa fa-chevron-left"></i> 领导者的资质  ———稻盛和夫
+              <a href="/2019/06/02/5/" rel="next" title="浅谈Pycharm之Unittest的接口自动化测试">
+                <i class="fa fa-chevron-left"></i> 浅谈Pycharm之Unittest的接口自动化测试
               </a>
             
           </div>
@@ -442,10 +446,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/06/6/" rel="prev" title="小程序UI自动化之Python">
-                小程序UI自动化之Python <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -607,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#工作中一直使用Python-Unittest做接口自动化测试-今天有时间总结一下"><span class="nav-number">1.</span> <span class="nav-text">工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#前置条件"><span class="nav-number"></span> <span class="nav-text">前置条件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-接口自动化框架"><span class="nav-number"></span> <span class="nav-text">1. 接口自动化框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-公共类"><span class="nav-number"></span> <span class="nav-text">2. 公共类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-case类"><span class="nav-number"></span> <span class="nav-text">3.case类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-测试数据"><span class="nav-number"></span> <span class="nav-text">4.测试数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-测试报告"><span class="nav-number"></span> <span class="nav-text">5.测试报告</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-详细解析接口自动化逻辑"><span class="nav-number"></span> <span class="nav-text">6.详细解析接口自动化逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-headers"><span class="nav-number"></span> <span class="nav-text">6.1 headers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2登录接口"><span class="nav-number"></span> <span class="nav-text">6.2登录接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3执行业务case"><span class="nav-number"></span> <span class="nav-text">6.3执行业务case</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4运行单个业务case"><span class="nav-number"></span> <span class="nav-text">6.4运行单个业务case</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5两个接口之间入参和出参的调用"><span class="nav-number"></span> <span class="nav-text">6.5两个接口之间入参和出参的调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-6多个文件之间运行case"><span class="nav-number"></span> <span class="nav-text">6.6多个文件之间运行case</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-run-case-py"><span class="nav-number"></span> <span class="nav-text">6.7 run_case.py</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-其他细节技术"><span class="nav-number"></span> <span class="nav-text">7.其他细节技术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-时间戳"><span class="nav-number"></span> <span class="nav-text">7.1 时间戳</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-多个文件之间引入"><span class="nav-number"></span> <span class="nav-text">7.2 多个文件之间引入</span></a></li></ol></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#UI自动化作为测试来说也是很必要的技术，在一个公司要不要展开自动化是需要考虑自动化投入和产出是否成正比。当然针对个人发展来说技多不压身，今天的这篇文章是借鉴他人的代码自己整理出的一些逻辑，希望在以后的日子里可以深入研究"><span class="nav-number">1.</span> <span class="nav-text">UI自动化作为测试来说也是很必要的技术，在一个公司要不要展开自动化是需要考虑自动化投入和产出是否成正比。当然针对个人发展来说技多不压身，今天的这篇文章是借鉴他人的代码自己整理出的一些逻辑，希望在以后的日子里可以深入研究</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#前置条件"><span class="nav-number"></span> <span class="nav-text">前置条件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Adb确定连接"><span class="nav-number"></span> <span class="nav-text">1. Adb确定连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Appium-desktop配置"><span class="nav-number"></span> <span class="nav-text">2. Appium desktop配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-case类"><span class="nav-number"></span> <span class="nav-text">3.case类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-测试数据"><span class="nav-number"></span> <span class="nav-text">4.测试数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-测试报告"><span class="nav-number"></span> <span class="nav-text">5.测试报告</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-详细解析接口自动化逻辑"><span class="nav-number"></span> <span class="nav-text">6.详细解析接口自动化逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-headers"><span class="nav-number"></span> <span class="nav-text">6.1 headers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2登录接口"><span class="nav-number"></span> <span class="nav-text">6.2登录接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3执行业务case"><span class="nav-number"></span> <span class="nav-text">6.3执行业务case</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4运行单个业务case"><span class="nav-number"></span> <span class="nav-text">6.4运行单个业务case</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5两个接口之间入参和出参的调用"><span class="nav-number"></span> <span class="nav-text">6.5两个接口之间入参和出参的调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-6多个文件之间运行case"><span class="nav-number"></span> <span class="nav-text">6.6多个文件之间运行case</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-run-case-py"><span class="nav-number"></span> <span class="nav-text">6.7 run_case.py</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-其他细节技术"><span class="nav-number"></span> <span class="nav-text">7.其他细节技术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-时间戳"><span class="nav-number"></span> <span class="nav-text">7.1 时间戳</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-多个文件之间引入"><span class="nav-number"></span> <span class="nav-text">7.2 多个文件之间引入</span></a></li></ol></li></ol></li></div>
             
 
           </div>
