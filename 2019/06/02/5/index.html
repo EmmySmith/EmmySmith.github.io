@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="google195f2740658ea04c">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="接口,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下前置条件 安装Python 安装Pycharm 配置相关的环境变量   1. 接口自动化框架 涉及到接口自动化的框架，主要包括公共类，case类，测试数据，测试报告等4大类  2. 公共类 公共类中主要是用到的公共数据（环境，数据，headers）,不同的端分为不同的.py文件。例如后台+前台  3.case类 cas">
+<meta name="keywords" content="接口">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈Pycharm之Unittest的接口自动化测试">
+<meta property="og:url" content="https://emmysmith.github.io/2019/06/02/5/index.html">
+<meta property="og:site_name" content="五年一磨">
+<meta property="og:description" content="工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下前置条件 安装Python 安装Pycharm 配置相关的环境变量   1. 接口自动化框架 涉及到接口自动化的框架，主要包括公共类，case类，测试数据，测试报告等4大类  2. 公共类 公共类中主要是用到的公共数据（环境，数据，headers）,不同的端分为不同的.py文件。例如后台+前台  3.case类 cas">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/02/VGWzqK.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/02/VGfbef.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/02/VGhEY4.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/03/VYlGtJ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/03/VY1QgI.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/05/VUeZBF.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/05/VUeUNd.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/05/VUexv6.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/05/VUmNrT.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/05/VUmDi9.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/05/VUnalt.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/05/VU1R1J.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/05/VUGXjJ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/05/VUJZDA.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/06/VaVjNd.png">
+<meta property="og:updated_time" content="2019-06-06T03:20:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈Pycharm之Unittest的接口自动化测试">
+<meta name="twitter:description" content="工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下前置条件 安装Python 安装Pycharm 配置相关的环境变量   1. 接口自动化框架 涉及到接口自动化的框架，主要包括公共类，case类，测试数据，测试报告等4大类  2. 公共类 公共类中主要是用到的公共数据（环境，数据，headers）,不同的端分为不同的.py文件。例如后台+前台  3.case类 cas">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/06/02/VGWzqK.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://emmysmith.github.io/2019/06/02/5/">
+
+
+
+
+
+  <title>浅谈Pycharm之Unittest的接口自动化测试 | 五年一磨</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">五年一磨</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://emmysmith.github.io/2019/06/02/5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Emmy Smith">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://s2.ax1x.com/2019/02/22/kfWqZd.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="五年一磨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">浅谈Pycharm之Unittest的接口自动化测试</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-02T20:04:13+08:00">
+                2019-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>  阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="工作中一直使用Python-Unittest做接口自动化测试-今天有时间总结一下"><a href="#工作中一直使用Python-Unittest做接口自动化测试-今天有时间总结一下" class="headerlink" title="工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下"></a>工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下</h5><h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><ol>
+<li>安装<a href="https://www.python.org/" target="_blank" rel="noopener">Python</a></li>
+<li>安装<a href="http://www.jetbrains.com/pycharm/?fromMenu" target="_blank" rel="noopener">Pycharm</a></li>
+<li>配置相关的环境变量</li>
+</ol>
+<hr>
+<h3 id="1-接口自动化框架"><a href="#1-接口自动化框架" class="headerlink" title="1. 接口自动化框架"></a>1. 接口自动化框架</h3><ul>
+<li>涉及到接口自动化的框架，主要包括公共类，case类，测试数据，测试报告等4大类<br><img src="https://s2.ax1x.com/2019/06/02/VGWzqK.png" alt="VGWzqK.png"></li>
+</ul>
+<h3 id="2-公共类"><a href="#2-公共类" class="headerlink" title="2. 公共类"></a>2. 公共类</h3><ul>
+<li>公共类中主要是用到的公共数据（环境，数据，headers）,不同的端分为不同的<code>.py</code>文件。例如后台+前台<br><img src="https://s2.ax1x.com/2019/06/02/VGfbef.png" alt="VGfbef.png"><br><img src="https://s2.ax1x.com/2019/06/02/VGhEY4.png" alt="VGhEY4.png"></li>
+</ul>
+<h3 id="3-case类"><a href="#3-case类" class="headerlink" title="3.case类"></a>3.case类</h3><ul>
+<li>case类是最主要的类，用于不同的分类，这是接口自动化的核心用的最多的类。按照不同的业务端可以分为不同的文件夹下创建不同的<code>.py</code>文件<br><img src="https://s2.ax1x.com/2019/06/03/VYlGtJ.png" alt="VYlGtJ.png"></li>
+</ul>
+<h3 id="4-测试数据"><a href="#4-测试数据" class="headerlink" title="4.测试数据"></a>4.测试数据</h3><ul>
+<li>测试数据主要是在case类中可能用到的数据，可使用ddt执行数据驱动测试方法上传的数据或者需要用到的数据(例如:.json文件)<br><img src="https://s2.ax1x.com/2019/06/03/VY1QgI.png" alt="VY1QgI.png"></li>
+</ul>
+<h3 id="5-测试报告"><a href="#5-测试报告" class="headerlink" title="5.测试报告"></a>5.测试报告</h3><ul>
+<li>测试报告用于生成测试报告，可通过邮件进行发送或定时发送测试报告，测试报告可通过默认的<code>HTMLTestRunner.py</code>的模板生成。测试报告是以<code>.html</code>文件显示<br><img src="https://s2.ax1x.com/2019/06/05/VUeZBF.png" alt="VUeZBF.png"></li>
+<li>查看一下基础的<code>.html</code>文件，生成的测试报告如果自己会前端技术的童鞋可以按照自己的想法修改不同的样式<br><img src="https://s2.ax1x.com/2019/06/05/VUeUNd.png" alt="VUeUNd.png"></li>
+</ul>
+<h3 id="6-详细解析接口自动化逻辑"><a href="#6-详细解析接口自动化逻辑" class="headerlink" title="6.详细解析接口自动化逻辑"></a>6.详细解析接口自动化逻辑</h3><h4 id="6-1-headers"><a href="#6-1-headers" class="headerlink" title="6.1 headers"></a>6.1 headers</h4><ul>
+<li>获取前使用headers是接口自动化最关键的第一步，只有登录后才能执行<code>case类</code>。把登录中的<code>headers</code>放在公共类中方便每个case调用<br><img src="https://s2.ax1x.com/2019/06/05/VUexv6.png" alt="VUexv6.png"></li>
+</ul>
+<h4 id="6-2登录接口"><a href="#6-2登录接口" class="headerlink" title="6.2登录接口"></a>6.2登录接口</h4><ul>
+<li>登录接口最好放在单独的文件夹中，不同的业务有不同登录接口，一般的登录接口只有一个，有两个登录接口执行case有优先顺序，不然无法登录，登录成功后就会有<code>token</code>，把获取的<code>token</code>同步到公共类的<code>headers</code>中<br><img src="https://s2.ax1x.com/2019/06/05/VUmNrT.png" alt="VUmNrT.png"></li>
+</ul>
+<h4 id="6-3执行业务case"><a href="#6-3执行业务case" class="headerlink" title="6.3执行业务case"></a>6.3执行业务case</h4><ul>
+<li>每个业务执行接口运行前都要有<code>headers</code>才能执行，在执行前从<code>headers</code>中同步<code>token</code>到执行业务case中。同样的不同的业务接口都会有先后顺序<br><img src="https://s2.ax1x.com/2019/06/05/VUmDi9.png" alt="VUmDi9.png"></li>
+</ul>
+<h4 id="6-4运行单个业务case"><a href="#6-4运行单个业务case" class="headerlink" title="6.4运行单个业务case"></a>6.4运行单个业务case</h4><ul>
+<li>针对简单的单一接口我们还是可以执行单个接口，优先顺序其实没那么重要，但针对有复杂业务来说接口自动化不同接口之间的耦合性会很强，所以用<code>Unittest</code>的框架执行如下：<br><img src="https://s2.ax1x.com/2019/06/05/VUnalt.png" alt="VUnalt.png"></li>
+</ul>
+<h4 id="6-5两个接口之间入参和出参的调用"><a href="#6-5两个接口之间入参和出参的调用" class="headerlink" title="6.5两个接口之间入参和出参的调用"></a>6.5两个接口之间入参和出参的调用</h4><ul>
+<li>刚刚也说到不同的上下业务接口间调用如何实现呢，下一个接口的入参需要上一个接口的返回值来传参，首先上一个接口正常编写只是返回的<code>response</code>里下一个接口需要用到的<code>入参值</code>需要由<code>str</code>格式通过<code>json.loads</code>转化成<code>dict</code>格式获取，然后通过<code>公共类</code>中的入参值传值到下一个接口，下一个接口中入参直接从<code>公共类</code>中获取即可<br><img src="https://s2.ax1x.com/2019/06/05/VU1R1J.png" alt="VU1R1J.png"></li>
+</ul>
+<h4 id="6-6多个文件之间运行case"><a href="#6-6多个文件之间运行case" class="headerlink" title="6.6多个文件之间运行case"></a>6.6多个文件之间运行case</h4><ul>
+<li>创建不同的文件可以方便的区分不同的业务，同时执行有相互依赖的文件执行会有先后顺序，<code>run</code>时最好要确定如何运行并确定执行的先后顺序<br><img src="https://s2.ax1x.com/2019/06/05/VUGXjJ.png" alt="VUGXjJ.png"></li>
+</ul>
+<h4 id="6-7-run-case-py"><a href="#6-7-run-case-py" class="headerlink" title="6.7 run_case.py"></a>6.7 run_case.py</h4><ul>
+<li>单独写一个执行所有<code>case</code>文件，并发送测试报告,具体的解释已经在以下代码详解中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">def new_file(test_dir):</span><br><span class="line">    #列举test_dir目录下的所有文件，结果以列表形式返回。</span><br><span class="line">    lists=os.listdir(test_dir)</span><br><span class="line">    #sort按key的关键字进行排序，lambda的入参fn为lists列表的元素，获取文件的最后修改时间</span><br><span class="line">    #最后对lists元素，按文件修改时间大小从小到大排序。</span><br><span class="line">    lists.sort(key=lambda fn:os.path.getmtime(test_dir+fn))</span><br><span class="line">    #获取最新文件的绝对路径</span><br><span class="line">    file_path=os.path.join(test_dir,lists[-1])</span><br><span class="line">    return file_path</span><br><span class="line"></span><br><span class="line">if __name__==&quot;__main__&quot;:</span><br><span class="line">    print (&apos;===== Start  ======&apos;)</span><br><span class="line">    # 1.执行测试用例，生成最新的测试用例</span><br><span class="line">    # 指定测试用例为当前文件夹下的test_case目录</span><br><span class="line"></span><br><span class="line">    test_dir = &apos;./&apos;</span><br><span class="line">    # 指定测试报告的路径</span><br><span class="line">    test_report_dir = &apos;./&apos;</span><br><span class="line"></span><br><span class="line">    # 包装测试用例</span><br><span class="line">    suite = unittest.TestSuite()</span><br><span class="line">    suite = unittest.defaultTestLoader.discover(test_dir, pattern=&apos;a_*.py&apos;)</span><br><span class="line"></span><br><span class="line">    #生成与执行时间相同的测试报告</span><br><span class="line">    now = time.strftime(&apos;%Y-%m-%d_%H_%M_%S_&apos;)</span><br><span class="line">    filename = test_report_dir +&apos;test_report&apos;+ now + &apos;result.html&apos;</span><br><span class="line">    fp = open(filename, &apos;wb&apos;)</span><br><span class="line"></span><br><span class="line">    runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title=u&apos;测试报告&apos;, description=u&apos;用例执行情况：&apos;)</span><br><span class="line">    runner.run(suite)</span><br><span class="line">    fp.close()</span><br><span class="line"></span><br><span class="line">    # 2.取最新测试报告</span><br><span class="line">    new_report = new_file(test_report_dir)</span><br><span class="line">    htmlf = open(new_report, &apos;r&apos;, encoding=&quot;utf-8&quot;)</span><br><span class="line">    htmlcont = htmlf.read()</span><br><span class="line">    # print(htmlcont)</span><br><span class="line"></span><br><span class="line">    html = BeautifulSoup(htmlcont, &apos;html.parser&apos;)</span><br><span class="line">    aaa = html.body.find(&apos;tr&apos;, id=&apos;total_row&apos;).find_all(&apos;td&apos;)[3].text</span><br><span class="line"></span><br><span class="line">    # 3.发送邮件，发送最新测试报告html</span><br><span class="line">    if aaa != 0:</span><br><span class="line">        send_email(new_report)</span><br><span class="line"></span><br><span class="line">    else:</span><br><span class="line">        print(&quot;test pass!&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="7-其他细节技术"><a href="#7-其他细节技术" class="headerlink" title="7.其他细节技术"></a>7.其他细节技术</h3><h4 id="7-1-时间戳"><a href="#7-1-时间戳" class="headerlink" title="7.1 时间戳"></a>7.1 时间戳</h4><ul>
+<li>在一些业务中时间戳肯定会经常用到，因数据库中存储时间会以时间戳来存储，就会有开始时间、结束时间、显示时间等各种情况显示<br><img src="https://s2.ax1x.com/2019/06/05/VUJZDA.png" alt="VUJZDA.png"></li>
+</ul>
+<h4 id="7-2-多个文件之间引入"><a href="#7-2-多个文件之间引入" class="headerlink" title="7.2 多个文件之间引入"></a>7.2 多个文件之间引入</h4><ul>
+<li>有时候不同文件之间无法引用，按照本人的理解应该没有导入成功，包含路径(绝对路径)，安装包，需要正常的引入或者导入成功调用就是很简单的事了<br><img src="https://s2.ax1x.com/2019/06/06/VaVjNd.png" alt="VaVjNd.png"></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/接口/" rel="tag"># 接口</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/30/4/" rel="next" title="领导者的资质  ———稻盛和夫">
+                <i class="fa fa-chevron-left"></i> 领导者的资质  ———稻盛和夫
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/06/6/" rel="prev" title="小程序UI自动化之Python">
+                小程序UI自动化之Python <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://s2.ax1x.com/2019/02/22/kfWqZd.jpg" alt="Emmy Smith">
+            
+              <p class="site-author-name" itemprop="name">Emmy Smith</p>
+              <p class="site-description motion-element" itemprop="description">小小敏</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/EmmySmith" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:fighttingxue@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/5116650265/" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://wx2.qq.com/" target="_blank" title="Wechat">
+                      
+                        <i class="fa fa-fw fa-wechat"></i>Wechat</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#工作中一直使用Python-Unittest做接口自动化测试-今天有时间总结一下"><span class="nav-number">1.</span> <span class="nav-text">工作中一直使用Python+Unittest做接口自动化测试,今天有时间总结一下</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#前置条件"><span class="nav-number"></span> <span class="nav-text">前置条件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-接口自动化框架"><span class="nav-number"></span> <span class="nav-text">1. 接口自动化框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-公共类"><span class="nav-number"></span> <span class="nav-text">2. 公共类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-case类"><span class="nav-number"></span> <span class="nav-text">3.case类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-测试数据"><span class="nav-number"></span> <span class="nav-text">4.测试数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-测试报告"><span class="nav-number"></span> <span class="nav-text">5.测试报告</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-详细解析接口自动化逻辑"><span class="nav-number"></span> <span class="nav-text">6.详细解析接口自动化逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-headers"><span class="nav-number"></span> <span class="nav-text">6.1 headers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2登录接口"><span class="nav-number"></span> <span class="nav-text">6.2登录接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3执行业务case"><span class="nav-number"></span> <span class="nav-text">6.3执行业务case</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4运行单个业务case"><span class="nav-number"></span> <span class="nav-text">6.4运行单个业务case</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5两个接口之间入参和出参的调用"><span class="nav-number"></span> <span class="nav-text">6.5两个接口之间入参和出参的调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-6多个文件之间运行case"><span class="nav-number"></span> <span class="nav-text">6.6多个文件之间运行case</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-run-case-py"><span class="nav-number"></span> <span class="nav-text">6.7 run_case.py</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-其他细节技术"><span class="nav-number"></span> <span class="nav-text">7.其他细节技术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-时间戳"><span class="nav-number"></span> <span class="nav-text">7.1 时间戳</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-多个文件之间引入"><span class="nav-number"></span> <span class="nav-text">7.2 多个文件之间引入</span></a></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Emmy Smith</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+ 
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

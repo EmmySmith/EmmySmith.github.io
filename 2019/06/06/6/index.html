@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="google195f2740658ea04c">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="UI,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="UI自动化作为测试来说也是很必要的技术，在一个公司要不要展开自动化是需要考虑自动化投入和产出是否成正比。当然针对个人发展来说技多不压身，今天的这篇文章是借鉴他人的代码自己整理出的一些逻辑，希望在以后的日子里可以深入研究前置条件 安装Python 安装Pycharm 安装类库：Unittest；request；appium；selenium；HMLTestRunner等 安装Adb 安装Node.j">
+<meta name="keywords" content="UI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小程序UI自动化之Python">
+<meta property="og:url" content="https://emmysmith.github.io/2019/06/06/6/index.html">
+<meta property="og:site_name" content="五年一磨">
+<meta property="og:description" content="UI自动化作为测试来说也是很必要的技术，在一个公司要不要展开自动化是需要考虑自动化投入和产出是否成正比。当然针对个人发展来说技多不压身，今天的这篇文章是借鉴他人的代码自己整理出的一些逻辑，希望在以后的日子里可以深入研究前置条件 安装Python 安装Pycharm 安装类库：Unittest；request；appium；selenium；HMLTestRunner等 安装Adb 安装Node.j">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/06/Vaj6zj.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/19/VXnTUS.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/19/VXnxbV.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/19/VXu95F.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/19/VXKTpQ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/19/VXKH6s.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/21/ZS6NjS.png">
+<meta property="og:updated_time" content="2019-06-25T02:20:35.655Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小程序UI自动化之Python">
+<meta name="twitter:description" content="UI自动化作为测试来说也是很必要的技术，在一个公司要不要展开自动化是需要考虑自动化投入和产出是否成正比。当然针对个人发展来说技多不压身，今天的这篇文章是借鉴他人的代码自己整理出的一些逻辑，希望在以后的日子里可以深入研究前置条件 安装Python 安装Pycharm 安装类库：Unittest；request；appium；selenium；HMLTestRunner等 安装Adb 安装Node.j">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/06/06/Vaj6zj.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://emmysmith.github.io/2019/06/06/6/">
+
+
+
+
+
+  <title>小程序UI自动化之Python | 五年一磨</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">五年一磨</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://emmysmith.github.io/2019/06/06/6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Emmy Smith">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://s2.ax1x.com/2019/02/22/kfWqZd.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="五年一磨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">小程序UI自动化之Python</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-06T11:24:13+08:00">
+                2019-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>  阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="UI自动化作为测试来说也是很必要的技术，在一个公司要不要展开自动化是需要考虑自动化投入和产出是否成正比。当然针对个人发展来说技多不压身，今天的这篇文章是借鉴他人的代码自己整理出的一些逻辑，希望在以后的日子里可以深入研究"><a href="#UI自动化作为测试来说也是很必要的技术，在一个公司要不要展开自动化是需要考虑自动化投入和产出是否成正比。当然针对个人发展来说技多不压身，今天的这篇文章是借鉴他人的代码自己整理出的一些逻辑，希望在以后的日子里可以深入研究" class="headerlink" title="UI自动化作为测试来说也是很必要的技术，在一个公司要不要展开自动化是需要考虑自动化投入和产出是否成正比。当然针对个人发展来说技多不压身，今天的这篇文章是借鉴他人的代码自己整理出的一些逻辑，希望在以后的日子里可以深入研究"></a>UI自动化作为测试来说也是很必要的技术，在一个公司要不要展开自动化是需要考虑自动化投入和产出是否成正比。当然针对个人发展来说技多不压身，今天的这篇文章是借鉴他人的代码自己整理出的一些逻辑，希望在以后的日子里可以深入研究</h5><h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><ol>
+<li>安装<a href="https://www.python.org/" target="_blank" rel="noopener">Python</a></li>
+<li>安装<a href="http://www.jetbrains.com/pycharm/?fromMenu" target="_blank" rel="noopener">Pycharm</a></li>
+<li>安装类库：Unittest；request；appium；selenium；HMLTestRunner等</li>
+<li>安装<a href="https://blog.csdn.net/vsrfind/article/details/79593098" target="_blank" rel="noopener">Adb</a></li>
+<li>安装<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a></li>
+<li>使用命令行安装[npm淘宝镜像]sudo npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a> –verbose</li>
+<li>安装<a href="https://testerhome.com/topics/680" target="_blank" rel="noopener">appium desktop</a></li>
+</ol>
+<hr>
+<h2 id="1-配置环境"><a href="#1-配置环境" class="headerlink" title="1.配置环境"></a>1.配置环境</h2><h3 id="1-1-Adb确定连接"><a href="#1-1-Adb确定连接" class="headerlink" title="1.1 Adb确定连接"></a>1.1 Adb确定连接</h3><ul>
+<li>首先手机需要打开开发者选项，然后使用电脑通过数据线连接手机，在命令行中输入以下命令就可查看手机和电脑是否连接成功<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. adb   没有提示错误信息则显示adb安装成功</span><br><span class="line">2. adb devices  出现设备信息则显示电脑和手机连接成功</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://s2.ax1x.com/2019/06/06/Vaj6zj.png" alt="Vaj6zj.png"></p>
+<h3 id="1-2-Appium-desktop配置"><a href="#1-2-Appium-desktop配置" class="headerlink" title="1.2 Appium desktop配置"></a>1.2 Appium desktop配置</h3><ul>
+<li><p>打开appium desktop中设置host为<code>127.0.0.1</code>，post为默认。点击<code>Start Server v1.10.0</code>按钮<br><a href="https://imgchr.com/i/VXnTUS" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/19/VXnTUS.png" alt="VXnTUS.png"></a></p>
+</li>
+<li><p>点击连接后打开右上角的🔍按钮<br><a href="https://imgchr.com/i/VXnxbV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/19/VXnxbV.png" alt="VXnxbV.png"></a></p>
+</li>
+<li><p>在配置 <code>Desired Capabilities</code>标签下输入<code>机型</code>、<code>版本</code>、<code>设备名称</code>、<code>启动app的包地址</code>、<code>app的活动名称</code>、<code>每次不重置</code>等，在右下角可点击<code>保存</code>、<code>另存为</code>、<code>根据上述配置开始执行</code><br><a href="https://imgchr.com/i/VXu95F" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/19/VXu95F.png" alt="VXu95F.png"></a></p>
+</li>
+<li><p>在<code>Saved Capability Sets</code>标签下可以看到刚刚配置的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;platformName&quot;: &quot;Android&quot;,         </span><br><span class="line">  &quot;platformVersion&quot;: &quot;5.0.2&quot;,</span><br><span class="line">  &quot;deviceName&quot;: &quot;79ZTWK9599999999&quot;,</span><br><span class="line">  &quot;appPackage&quot;: &quot;com.tencent.mm&quot;,</span><br><span class="line">  &quot;appActivity&quot;: &quot;com.tencent.mm.ui.LauncherUI&quot;,</span><br><span class="line">  &quot;noReset&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><a href="https://imgchr.com/i/VXKTpQ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/19/VXKTpQ.png" alt="VXKTpQ.png"></a></p>
+<ul>
+<li>连接手机后，在配置好的页面点击<code>Start Session</code>按钮，可以在页面定位到<code>element</code>定位，获取到点击的元素各个属性以及该元素的xpath定位<br><a href="https://imgchr.com/i/VXKH6s" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/19/VXKH6s.png" alt="VXKH6s.png"></a></li>
+</ul>
+<p>ok,如果以上的都完成了，恭喜你所有的配置环境都Done！</p>
+<h2 id="2-代码实现逻辑"><a href="#2-代码实现逻辑" class="headerlink" title="2.代码实现逻辑"></a>2.代码实现逻辑</h2><ul>
+<li>在编写代码前一定要设计好整个框架及框架的的结构，编写UI小程序自动化引用的是Appium框架，主要编写的代码分为几个大类<code>设备基础类</code>,<code>业务流程类</code>, <code>Elements类</code>, <code>公共方法类</code><br><a href="https://imgchr.com/i/ZS6NjS" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/21/ZS6NjS.png" alt="ZS6NjS.png"></a></li>
+</ul>
+<h3 id="2-1-Elements类"><a href="#2-1-Elements类" class="headerlink" title="2.1 Elements类"></a>2.1 Elements类</h3><ul>
+<li>xpath类其实在之前也说过，主要是用于定位元素的公共类，任何页面的点击都会触发定位元素，方便元素更好的定位。Appium在定位中使用的元素方式有很多种常用的有：例如<code>Xpath</code>、<code>id</code>、<code>name</code>、<code>ClassName</code>、<code>AccessibilityId</code>、等方式。在<code>AllPageElements</code>中下对不同的页面创建不同的<code>.py</code>文件，主要是通过<code>Xpath</code>方法定位。例如<code>主页</code>定位<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class HomePage():</span><br><span class="line">    elementList = &#123;</span><br><span class="line">        #在首页点击第一个商品</span><br><span class="line">        &apos;firstGoods&apos; : &apos;/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.webkit.WebView/android.view.View/android.view.View[5]/android.view.View[1]/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[2]/android.widget.Image&apos;,</span><br><span class="line"></span><br><span class="line">        #右上角的&quot;···&quot;</span><br><span class="line">        &apos;more&apos; : &apos;//android.widget.ImageButton[@content-desc=\&quot;更多\&quot;]&apos;,</span><br><span class="line"></span><br><span class="line">        #点击完右上角的&quot;···&quot;后，出现的蒙层页。点击分享。</span><br><span class="line">        &apos;moreShare&apos; : &apos;/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.TextView&apos;,</span><br><span class="line"></span><br><span class="line">        #选择分享对象</span><br><span class="line">        &apos;shareForward&apos; : &apos;//android.widget.FrameLayout[@content-desc=\&quot;当前所在页面,选择\&quot;]/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ListView/android.widget.RelativeLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout&apos;,</span><br><span class="line"></span><br><span class="line">        #点击发送</span><br><span class="line">        &apos;shareSend&apos; : &apos;/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.Button[2]&apos;,</span><br><span class="line"></span><br><span class="line">        #我的</span><br><span class="line">        &apos;my&apos; : &apos;/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.RelativeLayout[3]/android.widget.LinearLayout/android.widget.ImageView&apos;,</span><br><span class="line"></span><br><span class="line">        #首页</span><br><span class="line">        &apos;homePage&apos; : &apos;/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.TextView&apos;,</span><br><span class="line"></span><br><span class="line">        #退出小程序</span><br><span class="line">        &apos;exit&apos; : &apos;//android.widget.ImageButton[@content-desc=&quot;关闭&quot;]&apos;,</span><br><span class="line"></span><br><span class="line">        #从微信进入小程序（QA：拼拼到家）</span><br><span class="line">        &apos;miniProEnter&apos; : &apos;//android.widget.FrameLayout[@content-desc=&quot;当前所在页面,与的聊天&quot;]/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.widget.FrameLayout/com.tencent.mm.ui.mogic.WxViewPager/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ListView/android.widget.FrameLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.FrameLayout/android.widget.ImageView[1]&apos;,</span><br><span class="line"></span><br><span class="line">        #社区名称</span><br><span class="line">        &apos;communityName&apos; : &apos;/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View[2]&apos;,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-2-公共方法类"><a href="#2-2-公共方法类" class="headerlink" title="2.2 公共方法类"></a>2.2 公共方法类</h3><ul>
+<li>公共方法类直白的说就是定位元素的公共类，不同的定位元素可能会有相同的定位方式，只是索引不同。故此创建了公共方法类避免每次调用都要创建，其实这也是方便<code>Elements类</code>,使的每次调用相同的定位方法可直接从<code>公共方法类</code>中获取就行。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Find_Element():</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">        摘要：以xpath定位元素</span><br><span class="line">        参数介绍：</span><br><span class="line">            driver：appium驱动对象</span><br><span class="line">            xpath：需要查询元素的条件</span><br><span class="line">            msg：需要打印的信息，成功失败不用写（必须打印）</span><br><span class="line">            index：默认为0，值为得到list中的序数</span><br><span class="line">            send_keys：默认为1，不传值，当send_keys为其他值时，则传值</span><br><span class="line">            keys：当需要传值时，传的值是多少</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    def by_xpath(self,driver,xpath,msg,index=0,send_keys=1,keys=&apos;&apos;):</span><br><span class="line">        el = driver.find_elements_by_xpath(xpath)</span><br><span class="line">        #print(msg)</span><br><span class="line">        #print(driver.page_source)</span><br><span class="line">        #send_keys为1时，则认为不需要传值</span><br><span class="line">        self.judgeAndPrint(el, msg, index, send_keys, keys)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-3-设备基础类"><a href="#2-3-设备基础类" class="headerlink" title="2.3 设备基础类"></a>2.3 设备基础类</h3><ul>
+<li>从开始准备环境中已经准备环境变量，包括安装软件，配置Appium,定位元素及adb 使用等，这些前提条件准备好后就能写代码实现UI自动化的编程逻辑。<code>设备基础类</code>是整个实现代码的基础，是代码连接设备的桥梁。主要包括设备名称、设备版本、设备操作系统、设备键盘、设备安装包等。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class devices():</span><br><span class="line"></span><br><span class="line">    # @staticmethod</span><br><span class="line">    def setUp(self):</span><br><span class="line">        desired_caps=&#123;&#125;</span><br><span class="line">        desired_caps[&apos;platformName&apos;] = &apos;Android&apos;</span><br><span class="line">        desired_caps[&apos;platformVersion&apos;] = &apos;8.0.0&apos;   #安卓版本</span><br><span class="line">        # desired_caps[&apos;platformVersion&apos;] = &apos;5.0.2&apos;   #安卓版本</span><br><span class="line">        desired_caps[&apos;deviceName&apos;] = &apos;37KRX18A15018322&apos;      #设备名称   华为荣耀9i青春版--田野</span><br><span class="line">        # desired_caps[&apos;deviceName&apos;] = &apos;79ZTWK9599999999&apos;  # 设备名称   三星S8--云霞</span><br><span class="line">        desired_caps[&apos;noReset&apos;] = True              #键盘是不是要开启</span><br><span class="line">        desired_caps[&apos;appPackage&apos;] = &apos;com.tencent.mm&apos;  #安装的包地址</span><br><span class="line">        desired_caps[&apos;appActivity&apos;] = &apos;com.tencent.mm.ui.LauncherUI&apos;</span><br><span class="line">        driver=webdriver.Remote(&apos;http://127.0.0.1:4723/wd/hub&apos;, desired_caps)</span><br><span class="line">        #driver.find_elements_by_class_name()</span><br><span class="line">        #el_test=driver.find_element_by_xpath(&apos;asdfasdfasf&apos;)</span><br><span class="line">        #el_test.</span><br><span class="line">        return driver</span><br><span class="line">        #webdriver.webdriver.WebDriver.get_window_size()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-4-业务流程类"><a href="#2-4-业务流程类" class="headerlink" title="2.4 业务流程类"></a>2.4 业务流程类</h3><ul>
+<li>业务流程类主要是按照正常的业务场景梳理的业务流程，当然这也可以分不同的场景，主流程或者单个流程。本次本人介绍的是按照业务主流程进行分析，从用户的启动小程序到用户的选择商品再到加入购物车的全过程。代码如下:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">from com.MiniProgram.Main.AllPagesElements.GoodsDetail import GoodsDetail</span><br><span class="line">#from com.MiniProgram.Main.devices.Devices import devices</span><br><span class="line">from com.MiniProgram.Main.AllPagesElements.HomePage import HomePage</span><br><span class="line">from com.MiniProgram.Main.CommonFunction.Find_Element import Find_Element</span><br><span class="line">from com.MiniProgram.Main.devices.Devices import devices</span><br><span class="line">from com.MiniProgram.Main.CommonFunction.Swipe import Swipe</span><br><span class="line">from com.MiniProgram.Main.AllPagesElements.OrderConfirm import OrderConfirm</span><br><span class="line">from com.MiniProgram.Main.AllPagesElements.Pay import Pay</span><br><span class="line">from com.MiniProgram.Main.AllPagesElements.ShopCar import ShopCar</span><br><span class="line">from com.MiniProgram.Main.CommonFunction.TimeWait import TimeWait</span><br><span class="line"></span><br><span class="line">import time</span><br><span class="line">class MiniPro_buyMainFlow():</span><br><span class="line">    # login=login()</span><br><span class="line">    # 启动自动化测试，获取driver</span><br><span class="line"></span><br><span class="line">    #driver = login().login_autoTest()</span><br><span class="line"></span><br><span class="line">    # 初始化并获取driver</span><br><span class="line">    driver = devices().setUp()</span><br><span class="line">    time.sleep(8)</span><br><span class="line">    Swipe().swipe(driver,0.5,0.5,0.3,0.8,1000)</span><br><span class="line">    time.sleep(1)</span><br><span class="line"></span><br><span class="line">    Find_Element().by_xpath(driver,HomePage().elementList[&apos;miniProEnter&apos;],&apos;QA小程序登陆&apos;)</span><br><span class="line">    TimeWait().ExplicitWait(driver,HomePage.elementList[&apos;firstGoods&apos;],30)</span><br><span class="line"></span><br><span class="line">    # 进入详情页</span><br><span class="line">    Find_Element().by_xpath(driver,HomePage.elementList[&apos;firstGoods&apos;],&apos;点击第一个商品&apos;)</span><br><span class="line">    time.sleep(5)</span><br><span class="line"></span><br><span class="line">    # 点击加入购物车</span><br><span class="line">    Find_Element().by_xpath(driver,GoodsDetail().elementList[&apos;addToShopCar&apos;],&apos;点击加入购物车&apos;)</span><br><span class="line">    time.sleep(3)</span><br><span class="line"></span><br><span class="line">    # 将默认sku数量+1</span><br><span class="line">    Find_Element().by_xpath(driver, GoodsDetail().elementList[&apos;plus&apos;], &apos;点击+&apos;)</span><br><span class="line">    time.sleep(3)</span><br><span class="line"></span><br><span class="line">    # 改完数量后，点击加入购物车</span><br><span class="line">    Find_Element().by_xpath(driver, GoodsDetail().elementList[&apos;toShopCarTrue&apos;], &apos;点击加入购物车&apos;)</span><br><span class="line">    time.sleep(5)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>以上是按照UI自动化的框架进行的逻辑分析，在自动化框架中其实有很多种适用于自己业务的框架，适合的才是好的。UI自动化主要是界面的操作，适用于小程序、web、app等各种界面能操作的程序。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/UI/" rel="tag"># UI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/02/5/" rel="next" title="浅谈Pycharm之Unittest的接口自动化测试">
+                <i class="fa fa-chevron-left"></i> 浅谈Pycharm之Unittest的接口自动化测试
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/11/djangoinit/" rel="prev" title="Django入门(一)">
+                Django入门(一) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://s2.ax1x.com/2019/02/22/kfWqZd.jpg" alt="Emmy Smith">
+            
+              <p class="site-author-name" itemprop="name">Emmy Smith</p>
+              <p class="site-description motion-element" itemprop="description">小小敏</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/EmmySmith" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:fighttingxue@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/5116650265/" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://wx2.qq.com/" target="_blank" title="Wechat">
+                      
+                        <i class="fa fa-fw fa-wechat"></i>Wechat</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#UI自动化作为测试来说也是很必要的技术，在一个公司要不要展开自动化是需要考虑自动化投入和产出是否成正比。当然针对个人发展来说技多不压身，今天的这篇文章是借鉴他人的代码自己整理出的一些逻辑，希望在以后的日子里可以深入研究"><span class="nav-number">1.</span> <span class="nav-text">UI自动化作为测试来说也是很必要的技术，在一个公司要不要展开自动化是需要考虑自动化投入和产出是否成正比。当然针对个人发展来说技多不压身，今天的这篇文章是借鉴他人的代码自己整理出的一些逻辑，希望在以后的日子里可以深入研究</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#前置条件"><span class="nav-number"></span> <span class="nav-text">前置条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-配置环境"><span class="nav-number"></span> <span class="nav-text">1.配置环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Adb确定连接"><span class="nav-number"></span> <span class="nav-text">1.1 Adb确定连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Appium-desktop配置"><span class="nav-number"></span> <span class="nav-text">1.2 Appium desktop配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-代码实现逻辑"><span class="nav-number"></span> <span class="nav-text">2.代码实现逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Elements类"><span class="nav-number"></span> <span class="nav-text">2.1 Elements类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-公共方法类"><span class="nav-number"></span> <span class="nav-text">2.2 公共方法类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-设备基础类"><span class="nav-number"></span> <span class="nav-text">2.3 设备基础类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-业务流程类"><span class="nav-number"></span> <span class="nav-text">2.4 业务流程类</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Emmy Smith</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+ 
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
