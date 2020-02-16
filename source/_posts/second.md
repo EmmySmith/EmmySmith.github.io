@@ -122,6 +122,14 @@ git add .           将所有的代码提交到缓存区
 git commit -m 'new branch save'   提交分支代码
 git push          推送到远程
 ```
+
+### 3.0 SEO
+* SEO(Search Engine Optimization)汉译为搜索引擎优化。是一种方式：利用搜索引擎的规则提高网站在有关搜索引擎内的自然排名。
+* 参考2个文档
+  * [Google Webmaster tools](https://theme-next.iissnan.com/third-party-services.html#google-webmaster-tools)
+  * [8.SEO 优化](https://www.jianshu.com/p/4ef35521fee9)
+* 配置成功后登陆自己的[Google Search Console](https://search.google.com/search-console?hl=zh-CN&utm_source=wmx&utm_medium=deprecation-pane&utm_content=home&resource_id=https://emmysmith.github.io/),过几天就可以查看效果
+
 * 以上的所有操作是不是觉得有点冗余，是的。为了方便每次提交代码的方便，可以写一个`npm`帮助我们做这些事。在根目录下的`package.json`文件中加入以下执行代码：
 ```
 "scripts": {
